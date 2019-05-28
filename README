@@ -27,9 +27,10 @@ Download the plugin:
     $ git clone git@github.com:dnmfarrell/WebsterSearch webster-search
 
 Update .vimrc to map `<leader>d` to call webster-search on the word under the
-cursor:
+cursor, or visually highlighted:
 
-    $ echo "noremap <leader>d :WebsterSearch(expand('<cWORD>'))<cr>" >> ~/.vimrc
+    $ echo "nnoremap <leader>d :WebsterSearch(expand('<cWORD>'))<cr>" >> ~/.vimrc
+    $ echo "vnoremap <leader>d :<c-u>WebsterSearch(@*)<cr>" >> ~/.vimrc
 
 
 Copyright (c) 2019 David Farrell
