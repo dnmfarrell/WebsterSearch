@@ -5,7 +5,7 @@ function! WebsterSearch(term)
   let l:command =  s:parent_dir . '/' . l:perl_script . ' ' . a:term
   execute "let output = system('" . l:command . "')"
   vnew
-  setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile
+  setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile encoding=utf8
   call setline(1, split(output, "\n"))
 endfunction
 command! -nargs=1 WebsterSearch call WebsterSearch(<args>)

@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
+use Encode 'encode';
 my $search_term = uc join(' ',@ARGV) . "\n";
 my $entry_pattern = qr/^[A-Z][A-Z0-9' ;-]*$/;
 my $search_pattern = qr/^$search_term/;
@@ -55,7 +56,7 @@ while (<$dict>) {
      }
      $output .= $next_line;
     }
-    print $output;
+    print encode('UTF-8', $output);
     $found_match = 1;
   }
   last if $found_match && ($search_term cmp $_) == -1;
