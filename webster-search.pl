@@ -1,4 +1,6 @@
 #!/usr/bin/perl
+use strict;
+use warnings;
 my $search_word = shift or return;
 $search_word = uc "$search_word\n";
 
@@ -31,12 +33,16 @@ my %index = (
   Z => 27866401,
 );
 
-my $start = $index{ substr $search_word, 0, 1 };
-my $entry_pattern = qr/^[A-Z][A-Z0-9 ;-]*\n/;
+my @script_path = split '/', $0;
+pop @script_path;
+my $dictionary_path = join '/',  @script_path, 'webster-1913.txt';
 
-open my $dict, '<', 'webster-1913.txt' or die $!;
+my $start = $index{ substr $search_word, 0, 1 };
+open my $dict, '<', $dictionary_path or die $!;
 seek $dict, $start, 0;
+
 my $found_entry = undef;
+my $entry_pattern = qr/^[A-Z][A-Z0-9 ;-]*\n/;
 while (<$dict>) {
   next unless /$entry_pattern/;
 
