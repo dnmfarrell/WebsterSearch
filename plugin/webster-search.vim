@@ -1,7 +1,7 @@
 let s:parent_dir = expand('<sfile>:p:h')
 
 function! WebsterSearch(term)
-  let l:perl_script = 'webster-search.pl'
+  let l:perl_script = '../webster-search.pl'
   let l:command =  s:parent_dir . '/' . l:perl_script . ' ' . a:term
   execute "let output = system('" . l:command . "')"
   vnew

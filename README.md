@@ -20,7 +20,13 @@ any matching entries to standard output.
 
 Vim installation
 ----------------
-Download the plugin:
+If you use vim-plug:
+
+```vim
+Plug 'dnmfarrell/WebsterSearch'
+```
+
+or download the plugin:
 
     $ mkdir ~/.vim/plugin
     $ cd ~/.vim/plugin
