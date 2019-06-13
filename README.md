@@ -26,10 +26,10 @@ If you use vim-plug:
 Plug 'dnmfarrell/WebsterSearch'
 ```
 
-or download the plugin:
+Or install the plugin as a package (requires vim 8):
 
-    $ mkdir ~/.vim/plugin
-    $ cd ~/.vim/plugin
+    $ mkdir -p ~/.vim/pack/webster-search/start
+    $ cd ~/.vim/pack/webster-search/start
     $ git clone git@github.com:dnmfarrell/WebsterSearch webster-search
 
 Update .vimrc to map `<leader>d` to call webster-search on the word under the
